@@ -11,7 +11,7 @@ import (
 func NewOpenAiClient() *openai.Client {
 	token := os.Getenv("DashScope")
 	//dashscope_url := "https://dashscope.aliyuncs.com/compatible-mode/v1"
-	dashscope_url := "http://8.136.125.54/compatible-mode/v1"
+	dashscope_url := ""
 	config := openai.DefaultConfig(token)
 	config.BaseURL = dashscope_url
 
