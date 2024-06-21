@@ -36,7 +36,11 @@ func SimpleGetVec(prompt string) ([]float64, error) {
 		return nil, err
 	}
 
-	embedding := resp.Output.Embeddings[0].Embedding
+	var embedding []float64
+
+	if len(resp.Output.Embeddings) > 0 {
+		embedding = resp.Output.Embeddings[0].Embedding
+	}
 
 	return embedding, nil
 }
