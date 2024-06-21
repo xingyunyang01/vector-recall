@@ -34,14 +34,14 @@ func CreateIndex(indexName string, dim int, algorithm string, distance_method st
 }
 
 // 获取索引
-func GetIndex(indexName string) error {
-	result := tairClient.TvsGetIndex(context.Background(), indexName)
-	err := result.Err()
+func GetIndex(indexName string) ([]interface{}, error) {
+	result, err := tairClient.TvsGetIndex(context.Background(), indexName).Result()
+
 	if err != nil {
-		return err
+		return nil, err
 	}
 
-	return nil
+	return result, nil
 }
 
 // 插入
@@ -66,9 +66,11 @@ func VectorSearch(indexName string, vector string) (string, error) {
 	}
 
 	fmt.Println(result)
-	key, ok := result[0].(string)
-	if ok {
-		return key, nil
+	if len(result) > 0 {
+		key, ok := result[0].(string)
+		if ok {
+			return key, nil
+		}
 	}
 	return "", nil
 }
