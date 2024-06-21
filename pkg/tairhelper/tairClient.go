@@ -10,14 +10,14 @@ import (
 
 var tairClient *tair.TairClient // 全局客户端
 
-var ip = ""
+var ip = "r-bp1f6egs00szv63y1tpd.redis.rds.aliyuncs.com"
 
 func init() {
 	tairClient = tair.NewTairClient(&redis.Options{
 		Addr:     ip + ":" + "6379",
-		Username: "",
-		Password: "", // no password set
-		DB:       0,  // use default DB
+		Username: "r-bp1f6egs00szv63y1t",
+		Password: "flzx3qcYSYHL6T#", // no password set
+		DB:       0,                 // use default DB
 	})
 }
 

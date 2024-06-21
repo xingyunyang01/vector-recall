@@ -22,12 +22,20 @@ func main() {
 	//}
 
 	//1.准备prompt
-	prompt := "什么是Higress?"
-	// // prompt := "总结一下这份文档的内容"
-	// //prompt := "汉堡好吃吗"
+	//prompt := "什么是Higress?"
+	//prompt := "汉堡好吃吗"
+	prompt := "可以动态修改Higress的Wasm插件逻辑吗？"
+
 	chat := aihelper.Chat(prompt)
 	fmt.Println(chat)
 
+	fmt.Println("/////////////////////////////")
+	prompt = "怎么操作呢"
+
+	chat = aihelper.Chat(prompt)
+	fmt.Println(chat)
+
+	return
 	//2.向量化
 	textInputs := []string{prompt, chat}
 	vector, err := aihelper.GetVec(textInputs)

@@ -30,3 +30,8 @@ type Embeddings struct {
 type Output struct {
 	Embeddings []Embeddings `json:"embeddings"`
 }
+
+type OutPutFormat struct {
+	Question string `json:"question"`
+	Answer   string `json:"answer"`
+}
